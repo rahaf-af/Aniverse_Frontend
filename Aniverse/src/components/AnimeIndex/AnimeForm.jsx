@@ -1,10 +1,11 @@
 import React from 'react'
 import { useState , useEffect} from 'react'
 import axios from 'axios'
-import { Navigate , useParams } from 'react-router'
+import { useParams ,useNavigate } from 'react-router'
 
 
 function AnimeForm() {
+    
     const [formData , setformData]= useState({
         poster :'',
         title:'',
@@ -12,18 +13,33 @@ function AnimeForm() {
         rating:0.0,
         description:''
     })
+    const {animeId} = useParams()
+    const navigate = useNavigate()
+    console.log(animeId)
+
     function changeHandler(event){
         setformData({...formData, [event.target.name]: event.target.value})
         console.log(formData)
     }
     async function submitHandler(event){
+        let response ={}
+        event.preventDefault()
+        if (animeId){
+            const response = await axios.put(`http://127.0.0.1:8000/api/anime/${animeId}/`, formData)
+        }else{
+            const response = await axios.post(`http://127.0.0.1:8000/api/animes/`, formData)  
+        }
+        console.log(response)
+        if (response.status === 201 || response.status === 200){
+            navigate(`/anime/${response.data.id}`)
+        }
         
 
     }
   return (
     <>
-    <h1>Add Anime</h1>
-    <form>
+    <h1>{animeId ?`Edit ${formData.title}`:'Add Anime'}</h1>
+    <form onSubmit={submitHandler}>
         <div>
             <label htmlFor='poster'>Poster</label>
             <input onChange={changeHandler} value={formData.poster} id='poster' name='poster' type='image'/>
@@ -44,7 +60,7 @@ function AnimeForm() {
             <label htmlFor='description'>Description</label>
             <textarea onChange={changeHandler} id='description' name='description'/>
         </div>
-        <button type='submit' >Submit</button>
+        <button type='submit' >{animeId ?`Edit`:'Submit'}</button>
     </form>
     </>
   )

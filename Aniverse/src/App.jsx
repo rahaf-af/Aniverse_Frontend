@@ -16,6 +16,7 @@ function App() {
             <Route path = '/animes' element={<Animes/>}/>
             <Route path = '/anime/:animeId' element={<AnimeDetail/>}/>
             <Route path = '/addAnime' element={<AnimeForm/>}/>
+            <Route path = '/editAnime/:animeId' element={<AnimeForm/>}/>
             
         </Routes>
       </BrowserRouter>

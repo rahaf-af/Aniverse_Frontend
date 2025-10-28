@@ -1,16 +1,19 @@
 import React from 'react'
 import { useEffect , useState } from 'react'
-import { useParams } from 'react-router'
+import { useParams , useNavigate, Link } from 'react-router'
 import axios from 'axios'
+
 
 function AnimeDetail() {
     const [anime, setanime] = useState([])
     const [errors, seterrors] = useState()
     const {animeId} = useParams()
+    const navigate = useNavigate()
     console.log(animeId)
+
     async function getSingleAnime() {
         try{
-        const response = await axios.get(`http://127.0.0.1:8000/api/anime/${animeId}`)
+        const response = await axios.get(`http://127.0.0.1:8000/api/anime/${animeId}/`)
         console.log(response.data)
         setanime(response.data)
         } catch(error){
@@ -26,10 +29,10 @@ function AnimeDetail() {
     if (errors){
         return <h3>{errors}</h3>
     }
-    async function deleteHandeler(pastry_id, event) {
-        const response = await axios.delete(`http://127.0.0.1:8000/api/anime/${animeId}`)
+    async function deleteHandeler(event) {
+        const response = await axios.delete(`http://127.0.0.1:8000/api/anime/${animeId}/`)
         console.log(response.data)
-        Navigate('/animes')
+        navigate('/animes')
     } 
   return (
     <>
@@ -44,7 +47,7 @@ function AnimeDetail() {
                 <p>description: {anime.description}</p>
             </div>
             <div className='animebuttons'>
-                <button>Edit anime</button>
+                <Link to={`/editAnime/${animeId}`}><button>Edit anime</button></Link>
                 <button onClick={deleteHandeler}>Delete anime</button>
             </div>
 

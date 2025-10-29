@@ -41,10 +41,10 @@ function AnimeDetail() {
                 <img src={anime.poster} alt='anime poster'/>
             </div>
             <div className='animeInfo'>
-                <h1>title: {anime.title}</h1>
-                <p>genre: {anime.genre}</p>
-                <strong><p>rating: {anime.rating} ⭐</p></strong>
-                <p>description: {anime.description}</p>
+                <h1>Title: {anime.title}</h1>
+                <p>Genres: {anime.genre}</p>
+                <strong><p>Rating: {anime.rating} ⭐</p></strong>
+                <p>Description: {anime.description}</p>
             </div>
             <div className='animebuttons'>
                 <Link to={`/editAnime/${animeId}`}><button>Edit anime</button></Link>

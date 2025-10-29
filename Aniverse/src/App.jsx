@@ -6,12 +6,13 @@ import {BrowserRouter , Routes , Route} from 'react-router'
 import Animes from './components/AnimeIndex/Animes'
 import AnimeForm from './components/AnimeIndex/AnimeForm'
 import AnimeDetail from './components/AnimeIndex/AnimeDetail'
+import NavBar from './components/NaavBar/NavBar'
 function App() {
   const [count, setCount] = useState(0)
-
   return (
     <>
       <BrowserRouter>
+        <NavBar/>
         <Routes>
             <Route path = '/animes' element={<Animes/>}/>
             <Route path = '/anime/:animeId' element={<AnimeDetail/>}/>

@@ -1,0 +1,18 @@
+.animecard img{
+    width: 100%;
+    height: 300px;    
+}
+.animecard{
+    border-radius: 5px;
+    background-color: beige;
+    height: 360px;
+}
+.Animes{
+  padding: 0;
+  display: grid;
+  grid-gap: 16px;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+}
+.Animes .animecard a{
+    text-decoration: none;
+}

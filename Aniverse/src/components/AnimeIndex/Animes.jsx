@@ -2,6 +2,8 @@ import React from 'react'
 import { useEffect , useState } from 'react'
 import axios from 'axios'
 import { Link } from 'react-router'
+import './Anime.css'
+
 function Animes() {
     const [animes, setanimes] = useState([])
     const [errors, seterrors] = useState()

@@ -12,4 +12,4 @@ function NavBar() {
   )
 }
 
-export default NavBarThe bugs have been fixed and the nav bar component has been create
+export default NavBar

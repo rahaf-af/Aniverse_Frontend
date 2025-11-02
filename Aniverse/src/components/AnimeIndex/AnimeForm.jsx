@@ -15,7 +15,7 @@ function AnimeForm() {
         poster : '',
         title:'',
         genre:'',
-        rating:0.0,
+        global_rating:0.0,
         description:''
     })
     async function getSingleAnime() {
@@ -75,7 +75,7 @@ function AnimeForm() {
         </div>
         <div>
             <label htmlFor='rating'>Rating: </label>
-            <input onChange={changeHandler} value={formData.rating} id='rating' name='rating'/>
+            <input onChange={changeHandler} value={formData.global_rating} id='rating' name='rating'/>
         </div>
          <div>
             <label htmlFor='description'>Description: </label>

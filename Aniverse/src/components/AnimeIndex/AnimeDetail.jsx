@@ -43,7 +43,7 @@ function AnimeDetail() {
             <div className='animeInfo'>
                 <h1>Title: {anime.title}</h1>
                 <p>Genres: {anime.genre}</p>
-                <strong><p>Rating: {anime.rating} ⭐</p></strong>
+                <strong><p>Rating: {anime.global_rating} ⭐</p></strong>
                 <p>Description: {anime.description}</p>
             </div>
             <div className='animebuttons'>

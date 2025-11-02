@@ -8,6 +8,7 @@ function NavBar() {
         <Link to={'/animes'}>All animes </Link>
         <Link to = {'/addAnime'}>Add Anime</Link>
         <Link to ={'/posts'}>All posts</Link>
+        <Link to ={'/addPost'}>Add post</Link>
     </div>
     </>
   )

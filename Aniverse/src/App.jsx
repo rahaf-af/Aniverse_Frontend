@@ -9,6 +9,7 @@ import AnimeForm from './components/Anime/AnimeForm/AnimeForm'
 import AnimeDetail from './components/Anime/AnimeDetail/AnimeDetail'
 import Posts from './components/Post/PostIndex/PostIndex'
 import PostDetail from './components/Post/PostDetail/PostDetail'
+import PostForm from './components/Post/PostForm/PostForm'
 function App() {
   const [count, setCount] = useState(0)
   return (
@@ -22,6 +23,8 @@ function App() {
             <Route path = '/editAnime/:animeId' element={<AnimeForm/>}/>
             <Route path = '/posts' element={<Posts/>}/>
             <Route path = '/post/:postId' element={<PostDetail/>}/>
+            <Route path = '/addPost' element={<PostForm/>}/>
+            <Route path = '/editPost/:postId' element={<AnimeForm/>}/>
             
         </Routes>
       </BrowserRouter>

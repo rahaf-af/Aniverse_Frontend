@@ -1,9 +1,11 @@
 import React from 'react'
+import { useState , useEffect} from 'react'
+import axios from 'axios'
+import { useParams ,useNavigate } from 'react-router'
 
 function PostDetail() {
-  return (
-    <div>PostDetail</div>
-  )
+  <>
+  </>
 }
 
 export default PostDetail

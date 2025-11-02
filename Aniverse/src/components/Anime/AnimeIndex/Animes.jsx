@@ -13,7 +13,7 @@ function Animes() {
 
     async function getAllAnimes() {
         try{
-        const response = await axios.get(' http://127.0.0.1:8000/api/animes/')
+        const response = await axios.get('http://127.0.0.1:8000/api/animes/')
         console.log(response.data)
         setanimes(response.data)
         } catch(error){
@@ -49,10 +49,10 @@ function Animes() {
   }
   return (
     <>
-        <h1>All Animes available</h1>
+        <h1>All available Animes</h1>
         <form onSubmit={getSearchResult}>
-            <label htmlFor='userinput'><strong>Search Term:</strong></label>
-            <input id ='userinput' type='text' onChange={inputhandler} value={Searchinput} placeholder='Enter Starship name' ></input>
+            <label htmlFor='userinput'><strong>Search:</strong></label>
+            <input id ='userinput' type='text' onChange={inputhandler} value={Searchinput} placeholder='Enter anime title' ></input>
             <button type='submit'>Search</button>
             <button type='button'onClick={Reset}>Reset</button>
         </form>
@@ -61,8 +61,8 @@ function Animes() {
             
                 SearchResult.map((anime)=>{
                     return(
-                        <Link to= {`/anime/${anime.id}/`}>
-                            <div className='animecard' key={anime.id}>
+                        <Link to= {`/anime/${anime.id}/`}key={anime.id}>
+                            <div className='animecard'>
                                 <img src={anime.poster} alt='anime poster'/>
                                 <p>{anime.title}</p>
                             </div>
@@ -74,8 +74,8 @@ function Animes() {
                 // Starshipsdata ?
                     animes.map((anime)=>{
                         return(
-                            <Link to= {`/anime/${anime.id}/`}>
-                                <div className='animecard' key={anime.id}>
+                            <Link to= {`/anime/${anime.id}/`} key={anime.id}>
+                                <div className='animecard'>
                                     <img src={anime.poster} alt='anime poster'/>
                                     <p>{anime.title}</p>
                                 </div>

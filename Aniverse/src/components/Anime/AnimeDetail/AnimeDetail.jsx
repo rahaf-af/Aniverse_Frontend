@@ -2,7 +2,7 @@ import React from 'react'
 import { useEffect , useState } from 'react'
 import { useParams , useNavigate, Link } from 'react-router'
 import axios from 'axios'
-
+import { authRequest, getUserFromToken, clearTokens } from "../../../lib/auth"
 
 function AnimeDetail() {
     const [anime, setanime] = useState([])
@@ -30,7 +30,7 @@ function AnimeDetail() {
         return <h3>{errors}</h3>
     }
     async function deleteHandeler(event) {
-        const response = await axios.delete(`http://127.0.0.1:8000/api/anime/${animeId}/`)
+        const response = await authRequest({method:'delete',url:`http://127.0.0.1:8000/api/anime/${animeId}/`})
         console.log(response.data)
         navigate('/animes')
     } 

@@ -3,6 +3,7 @@ import { useState , useEffect} from 'react'
 import axios from 'axios'
 import { useParams ,useNavigate } from 'react-router'
 import { Link } from 'react-router'
+import { authRequest, getUserFromToken, clearTokens } from "../../../lib/auth"
 
 function PostDetail() {
    const [post, setpost] = useState([])
@@ -30,7 +31,7 @@ function PostDetail() {
         return <h3>{errors}</h3>
     }
     async function deleteHandeler(event) {
-        const response = await axios.delete(`http://127.0.0.1:8000/api/post/${postId}/`)
+        const response = await authRequest({method: 'delete',url: `http://127.0.0.1:8000/api/post/${postId}/`})
         console.log(response.data)
         navigate('/posts')
     } 

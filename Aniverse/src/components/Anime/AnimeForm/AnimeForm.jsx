@@ -2,7 +2,7 @@ import React from 'react'
 import { useState , useEffect} from 'react'
 import axios from 'axios'
 import { useParams ,useNavigate } from 'react-router'
-
+import { authRequest, getUserFromToken, clearTokens } from "../../../lib/auth"
 
 function AnimeForm() {
     const {animeId} = useParams()
@@ -45,17 +45,15 @@ function AnimeForm() {
         event.preventDefault()
         let response ={}
         if (animeId){
-            response = await axios.put(`http://127.0.0.1:8000/api/anime/${animeId}/`, formData)
+            response = await authRequest({method: 'put', url:`http://127.0.0.1:8000/api/anime/${animeId}/`}, formData)
         }else{
-            response = await axios.post(`http://127.0.0.1:8000/api/animes/`, formData)  
+            response = await authRequest({method: 'post', url:`http://127.0.0.1:8000/api/animes/`}, formData)  
         }
         console.log(response)
         if (response.status === 201 || response.status === 200){
             
             navigate(`/anime/${response.data.id}`)
         }
-        
-
     }
   return (
     <>

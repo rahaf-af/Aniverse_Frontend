@@ -13,6 +13,8 @@ import PostForm from './components/Post/PostForm/PostForm'
 import Signup from './components/Auth/Signup'
 import Login from './components/Auth/Login'
 import Home from './components/Main_comp/Home/Home'
+import MyProfile from './components/Account/MyProfile/MyProfile'
+import ProfileForm from './components/Account/ProfileForm/ProfileForm'
 import { getUserFromToken } from './lib/auth'
 function App() {
    const [user, setUser] = useState(getUserFromToken())
@@ -23,6 +25,8 @@ function App() {
         <Routes>
             <Route path = '/signup' element={<Signup/>}/>
             <Route path = '/login' element={<Login setUser={setUser}/>}/>
+            <Route path = '/myprofile' element={<MyProfile setUser={setUser}/>}/>
+            <Route path = '/editprofile/:profileId' element={<ProfileForm/>}/>
             <Route path = '/home' element={<Home/>}/>
             <Route path = '/animes' element={<Animes/>}/>
             <Route path = '/anime/:animeId' element={<AnimeDetail/>}/>

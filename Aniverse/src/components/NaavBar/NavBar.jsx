@@ -12,7 +12,10 @@ function NavBar({ user, setUser }) {
         {
           user
             ?
-            <LogoutButton setUser={setUser}></LogoutButton>
+            <>
+              <Link to={'/myprofile'}>my profile</Link>
+              <LogoutButton setUser={setUser}></LogoutButton>
+            </>
             :
             <>
               <Link to={'/signup'}>Signup</Link>

@@ -2,6 +2,7 @@ import React from 'react'
 import { useState , useEffect} from 'react'
 import axios from 'axios'
 import { useParams ,useNavigate } from 'react-router'
+import { Link } from 'react-router'
 
 function PostDetail() {
    const [post, setpost] = useState([])
@@ -38,7 +39,7 @@ function PostDetail() {
     <div className='singlepost'>
         <p>@{post.auther}</p>
       <div className='postposter'>
-        <img src={post.poster} alt='anime poster'/>
+        <img src={post.poster} alt='post poster'/>
       </div>
       <div className='postInfo'>
         <p>Description: {post.text}</p>

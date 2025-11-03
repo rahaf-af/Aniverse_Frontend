@@ -10,12 +10,16 @@ import AnimeDetail from './components/Anime/AnimeDetail/AnimeDetail'
 import Posts from './components/Post/PostIndex/PostIndex'
 import PostDetail from './components/Post/PostDetail/PostDetail'
 import PostForm from './components/Post/PostForm/PostForm'
+import Signup from './components/Auth/Signup'
+import Login from './components/Auth/Login'
 function App() {
   return (
     <>
       <BrowserRouter>
         <NavBar/>
         <Routes>
+            <Route path = '/signup' element={<Signup/>}/>
+            <Route path = '/login' element={<Login/>}/>
             <Route path = '/animes' element={<Animes/>}/>
             <Route path = '/anime/:animeId' element={<AnimeDetail/>}/>
             <Route path = '/addAnime' element={<AnimeForm/>}/>
@@ -23,7 +27,7 @@ function App() {
             <Route path = '/posts' element={<Posts/>}/>
             <Route path = '/post/:postId' element={<PostDetail/>}/>
             <Route path = '/addPost' element={<PostForm/>}/>
-            <Route path = '/editPost/:postId' element={<AnimeForm/>}/>
+            <Route path = '/editPost/:postId' element={<PostForm/>}/>
         </Routes>
       </BrowserRouter>
     </>

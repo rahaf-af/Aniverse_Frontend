@@ -47,19 +47,19 @@ function PostForm() {
     }
   }
   return (
-  <>
-    <h1>{postId ?`Edit Post `:'Add Post'}</h1>
-    <form onSubmit={submitHandler}>
-        <div>
-            <label htmlFor='poster'>Poster Link: </label>
-            <input onChange={changeHandler} value={formData.poster} id='poster' name='poster' type='text'/>
-        </div>
-        <div>
-            <label htmlFor='text'>Title: </label>
-            <input onChange={changeHandler} value={formData.text} id='text' name='text' type='text'/>
-        </div>
-        <button type='submit' >{postId ?`Edit`:'Submit'}</button>
-    </form>
+    <>
+      <h1>{postId ?`Edit Post `:'Add Post'}</h1>
+      <form onSubmit={submitHandler}>
+          <div>
+              <label htmlFor='poster'>Poster Link: </label>
+              <input onChange={changeHandler} value={formData.poster} id='poster' name='poster' type='text'/>
+          </div>
+          <div>
+              <label htmlFor='text'></label>
+              <input onChange={changeHandler} value={formData.text} id='text' name='text' type='text'/>
+          </div>
+          <button type='submit' >{postId ?`Edit`:'Submit'}</button>
+      </form>
     </>
   )
 }

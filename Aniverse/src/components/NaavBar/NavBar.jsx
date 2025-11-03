@@ -1,15 +1,24 @@
 import React from 'react'
 import { Link } from 'react-router'
-
-function NavBar() {
+import LogoutButton from '../Auth/LogoutButton'
+function NavBar({ user, setUser }) {
   return (
     <>
-    <div>
+    <div className='nav'>
         <Link to={'/animes'}>All animes </Link>
         <Link to = {'/addAnime'}>Add Anime</Link>
         <Link to ={'/posts'}>All posts</Link>
         <Link to ={'/addPost'}>Add post</Link>
-        <Link to={'/signup'}>Signup</Link>
+        {
+          user
+            ?
+            <LogoutButton setUser={setUser}></LogoutButton>
+            :
+            <>
+              <Link to={'/signup'}>Signup</Link>
+              <Link to={'/login'}>Login</Link>
+            </>
+        }
     </div>
     </>
   )

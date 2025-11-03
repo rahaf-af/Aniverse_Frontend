@@ -13,15 +13,17 @@ import PostForm from './components/Post/PostForm/PostForm'
 import Signup from './components/Auth/Signup'
 import Login from './components/Auth/Login'
 import Home from './components/Main_comp/Home/Home'
+import { getUserFromToken } from './lib/auth'
 function App() {
+   const [user, setUser] = useState(getUserFromToken())
   return (
     <>
       <BrowserRouter>
-        <NavBar/>
+        <NavBar user={user} setUser={setUser}/>
         <Routes>
-            <Route path = '/' element={<Signup/>}/>
+            <Route path = '/signup' element={<Signup/>}/>
+            <Route path = '/login' element={<Login setUser={setUser}/>}/>
             <Route path = '/home' element={<Home/>}/>
-            <Route path = '/login' element={<Login/>}/>
             <Route path = '/animes' element={<Animes/>}/>
             <Route path = '/anime/:animeId' element={<AnimeDetail/>}/>
             <Route path = '/addAnime' element={<AnimeForm/>}/>

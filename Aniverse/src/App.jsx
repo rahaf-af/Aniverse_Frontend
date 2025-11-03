@@ -12,13 +12,15 @@ import PostDetail from './components/Post/PostDetail/PostDetail'
 import PostForm from './components/Post/PostForm/PostForm'
 import Signup from './components/Auth/Signup'
 import Login from './components/Auth/Login'
+import Home from './components/Main_comp/Home/Home'
 function App() {
   return (
     <>
       <BrowserRouter>
         <NavBar/>
         <Routes>
-            <Route path = '/signup' element={<Signup/>}/>
+            <Route path = '/' element={<Signup/>}/>
+            <Route path = '/home' element={<Home/>}/>
             <Route path = '/login' element={<Login/>}/>
             <Route path = '/animes' element={<Animes/>}/>
             <Route path = '/anime/:animeId' element={<AnimeDetail/>}/>

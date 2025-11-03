@@ -2,6 +2,7 @@ import React from 'react'
 import { useState , useEffect} from 'react'
 import axios from 'axios'
 import { useParams ,useNavigate } from 'react-router'
+import { authRequest, getUserFromToken, clearTokens } from "../../../lib/auth"
 
 function PostForm() {
   const {postId} = useParams()
@@ -37,9 +38,9 @@ function PostForm() {
     event.preventDefault()
     let response ={}
     if (postId){
-      response = await axios.put(`http://127.0.0.1:8000/api/post/${postId}/`, formData)
+      response = await authRequest({method:'put', url:`http://127.0.0.1:8000/api/post/${postId}/`}, formData)
     }else{
-      response = await axios.post(`http://127.0.0.1:8000/api/posts`, formData)  
+      response = await authRequest({method:'post', url: 'http://127.0.0.1:8000/api/posts'}, formData)  
     }
     console.log(response)
     if (response.status === 201 || response.status === 200){     

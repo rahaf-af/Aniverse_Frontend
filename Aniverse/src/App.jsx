@@ -11,7 +11,6 @@ import Posts from './components/Post/PostIndex/PostIndex'
 import PostDetail from './components/Post/PostDetail/PostDetail'
 import PostForm from './components/Post/PostForm/PostForm'
 function App() {
-  const [count, setCount] = useState(0)
   return (
     <>
       <BrowserRouter>
@@ -25,7 +24,6 @@ function App() {
             <Route path = '/post/:postId' element={<PostDetail/>}/>
             <Route path = '/addPost' element={<PostForm/>}/>
             <Route path = '/editPost/:postId' element={<AnimeForm/>}/>
-            
         </Routes>
       </BrowserRouter>
     </>

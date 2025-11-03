@@ -32,6 +32,7 @@ function Posts() {
               return(
                 <Link to= {`/post/${post.id}/`}key={post.id}>
                   <div className='postcard'>
+                    <p>@{post.auther}</p>
                     <img src={post.poster} alt='post poster'/>
                     <p>{post.text}</p>
                   </div>

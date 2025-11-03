@@ -16,7 +16,8 @@ function Signup() {
   async function submitHandler(event){
     event.preventDefault()
     try {
-      await axios.post('http://127.0.0.1:8000/api/signup/',formData )
+      const response = await axios.post('http://127.0.0.1:8000/api/signup/',formData )
+      console.log(response.data)
       navigate('/login')
     } catch (error) {
       console.error(error)
@@ -30,7 +31,7 @@ function Signup() {
   }
   return (
     <>
-      <div>
+      <div className='signup'>
         <h2>Sign Up</h2>
         <form onSubmit={submitHandler}>
           <input name='first_name' placeholder='First name' value={formData.first_name} onChange={changeHandler} />

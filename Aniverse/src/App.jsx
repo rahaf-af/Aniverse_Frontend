@@ -15,6 +15,7 @@ import Login from './components/Auth/Login'
 import Home from './components/Main_comp/Home/Home'
 import MyProfile from './components/Account/MyProfile/MyProfile'
 import ProfileForm from './components/Account/ProfileForm/ProfileForm'
+import AnimeReview from './components/Anime/AnimeReview/AnimeReview'
 import { getUserFromToken } from './lib/auth'
 function App() {
    const [user, setUser] = useState(getUserFromToken())
@@ -32,6 +33,7 @@ function App() {
             <Route path = '/anime/:animeId' element={<AnimeDetail/>}/>
             <Route path = '/addAnime' element={<AnimeForm/>}/>
             <Route path = '/editAnime/:animeId' element={<AnimeForm/>}/>
+            <Route path = '/addreview/:animeId' element={<AnimeReview/>}/>
             <Route path = '/posts' element={<Posts/>}/>
             <Route path = '/post/:postId' element={<PostDetail/>}/>
             <Route path = '/addPost' element={<PostForm/>}/>

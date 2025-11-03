@@ -3,6 +3,7 @@ import { useEffect , useState } from 'react'
 import { useParams , useNavigate, Link } from 'react-router'
 import axios from 'axios'
 import { authRequest, getUserFromToken, clearTokens } from "../../../lib/auth"
+import {FaComment} from 'react-icons/fa'
 
 function AnimeDetail() {
     const [anime, setanime] = useState([])
@@ -30,7 +31,7 @@ function AnimeDetail() {
         return <h3>{errors}</h3>
     }
     async function deleteHandeler(event) {
-        const response = await authRequest({method:'delete',url:`http://127.0.0.1:8000/api/anime/${animeId}/`})
+        const response = await authRequest({method:'delete',url:`http://127.0.0.1:8000/api/anime/${animeId}/review`})
         console.log(response.data)
         navigate('/animes')
     } 
@@ -39,6 +40,10 @@ function AnimeDetail() {
         <div className='singleanime'>
             <div className='animeposter'>
                 <img src={anime.poster} alt='anime poster'/>
+            </div>
+            <p></p>
+            <div className='interacticons'>
+                <Link to={`/addreview/${animeId}`}>{anime.review_count}<FaComment size={25}/></Link>
             </div>
             <div className='animeInfo'>
                 <h1>Title: {anime.title}</h1>

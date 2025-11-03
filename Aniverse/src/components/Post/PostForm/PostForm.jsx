@@ -38,9 +38,9 @@ function PostForm() {
     event.preventDefault()
     let response ={}
     if (postId){
-      response = await authRequest({method:'put', url:`http://127.0.0.1:8000/api/post/${postId}/`}, formData)
+      response = await authRequest({method:'put', url:`http://127.0.0.1:8000/api/post/${postId}/`, data:formData})
     }else{
-      response = await authRequest({method:'post', url: 'http://127.0.0.1:8000/api/posts'}, formData)  
+      response = await authRequest({method:'post', url: 'http://127.0.0.1:8000/api/posts' , data:formData})  
     }
     console.log(response)
     if (response.status === 201 || response.status === 200){     

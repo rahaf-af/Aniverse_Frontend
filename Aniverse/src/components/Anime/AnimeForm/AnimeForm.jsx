@@ -45,9 +45,9 @@ function AnimeForm() {
         event.preventDefault()
         let response ={}
         if (animeId){
-            response = await authRequest({method: 'put', url:`http://127.0.0.1:8000/api/anime/${animeId}/`}, formData)
+            response = await authRequest({method: 'put', url:`http://127.0.0.1:8000/api/anime/${animeId}/` , data:formData})
         }else{
-            response = await authRequest({method: 'post', url:`http://127.0.0.1:8000/api/animes/`}, formData)  
+            response = await authRequest({method: 'post', url:`http://127.0.0.1:8000/api/animes/`, data:formData})  
         }
         console.log(response)
         if (response.status === 201 || response.status === 200){

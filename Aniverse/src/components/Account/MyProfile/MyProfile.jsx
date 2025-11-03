@@ -9,6 +9,7 @@ import { Link } from 'react-router'
 function MyProfile() {
     const [profile, setprofile] = useState([])
     const [errors, seterrors] = useState()
+    const [profileId, setprofileId] = useState()
     const navigate = useNavigate()
 
     async function getMyProfile() {
@@ -16,7 +17,7 @@ function MyProfile() {
           const response = await authRequest({method:'get',url: `http://127.0.0.1:8000/api/myprofile/`})
           console.log(response.data)
           setprofile(response.data)
-          const profileId = response.data.id
+          setprofileId(response.data.id)
         } catch(error){
             console.log(error)
             seterrors(error)
@@ -42,7 +43,7 @@ function MyProfile() {
                 <p>bio:{profile.bio}</p>
             </div>
             <div className='postbuttons'>
-                <Link to={`/editprofile/${profile.id}`}><button>Edit account</button></Link>
+                <Link to={`/editprofile/${profileId}`}><button>Edit account</button></Link>
                 <button onClick={deleteHandeler}>Delete account</button>
             </div>
         </div>

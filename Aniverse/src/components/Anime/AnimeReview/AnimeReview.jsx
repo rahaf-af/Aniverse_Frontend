@@ -68,10 +68,13 @@ function AnimeReview() {
                         onMouseOver={()=> handelMouseOver(index +1)}
                         onMouseLeave={handelMouseLeave}
                         />)})}
-                        </div>
+                        <div>
                             <textarea value={reviewtext} style={styles.textarea} placeholder='Add your Feedback' onChange={changeHandler }></textarea>
                             <button style={styles.button} type='submit'>Submit</button>
-                        </div>            
+                        </div>
+                </div>
+            </div>
+                            
         </form>
     </>
   )

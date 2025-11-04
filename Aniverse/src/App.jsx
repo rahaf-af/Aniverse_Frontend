@@ -16,6 +16,7 @@ import Home from './components/Main_comp/Home/Home'
 import MyProfile from './components/Account/MyProfile/MyProfile'
 import ProfileForm from './components/Account/ProfileForm/ProfileForm'
 import AnimeReview from './components/Anime/AnimeReview/AnimeReview'
+import PostComment from './components/Post/PostComment/PostComment'
 import { getUserFromToken } from './lib/auth'
 function App() {
    const [user, setUser] = useState(getUserFromToken())
@@ -38,6 +39,7 @@ function App() {
             <Route path = '/post/:postId' element={<PostDetail/>}/>
             <Route path = '/addPost' element={<PostForm/>}/>
             <Route path = '/editPost/:postId' element={<PostForm/>}/>
+            <Route path = '/addcomment/:postId' element={<PostComment/>}/>
         </Routes>
       </BrowserRouter>
     </>

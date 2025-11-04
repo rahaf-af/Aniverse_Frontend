@@ -4,6 +4,7 @@ import axios from 'axios'
 import { useParams ,useNavigate } from 'react-router'
 import { Link } from 'react-router'
 import { authRequest, getUserFromToken, clearTokens } from "../../../lib/auth"
+import {FaComment} from 'react-icons/fa'
 
 function PostDetail() {
    const [post, setpost] = useState([])
@@ -44,6 +45,9 @@ function PostDetail() {
       </div>
       <div className='postInfo'>
         <p>Description: {post.text}</p>
+      </div>
+      <div className='interacticons'>
+        <Link to={`/addcomment/${postId}`}>{post.comment_count}<FaComment size={25}/></Link>
       </div>
       <div className='postbuttons'>
         <Link to={`/editPost/${postId}`}><button>Edit post</button></Link>

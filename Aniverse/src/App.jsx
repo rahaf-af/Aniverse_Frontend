@@ -19,6 +19,7 @@ import AnimeReview from './components/Anime/AnimeReview/AnimeReview'
 import PostComment from './components/Post/PostComment/PostComment'
 import MyAnimeFavoritList from './components/Anime/MyAnimeFavoritList/MyAnimeFavoritList'
 import MyPostFavoritList from './components/Post/MyPostFavoritList/MyPostFavoritList'
+import ContactForm from './components/Main_comp/ContactForm/ContactForm'
 import { getUserFromToken } from './lib/auth'
 import ProtectedRoute from './components/Auth/ProtectedRoute/'
 function App() {
@@ -30,9 +31,10 @@ function App() {
         <Routes>
             <Route path = '/signup' element={<Signup/>}/>
             <Route path = '/login' element={<Login setUser={setUser}/>}/>
-            <Route path = '/myprofile' element={<MyProfile setUser={setUser}/>}/>
+            <Route path = '/myprofile' element={<MyProfile setUser={setUser}/>}/>ContactForm
             <Route path = '/editprofile/:profileId' element={<ProfileForm/>}/>
             <Route path = '/home' element={<Home/>}/>
+            <Route path = '/contacus' element={<ContactForm/>}/>
             <Route path = '/animes' element={<Animes/>}/>
             <Route path = '/anime/:animeId' element={<AnimeDetail/>}/>
             <Route path = '/addAnime' element={<AnimeForm/>}/>

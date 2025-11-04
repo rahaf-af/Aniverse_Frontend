@@ -6,6 +6,7 @@ import { authRequest, getUserFromToken, clearTokens } from "../../../lib/auth"
 import { Link } from 'react-router'
 
 
+
 function MyProfile() {
     const [profile, setprofile] = useState([])
     const [errors, seterrors] = useState()
@@ -46,6 +47,7 @@ function MyProfile() {
                 <Link to={`/editprofile/${profileId}`}><button>Edit account</button></Link>
                 <button onClick={deleteHandeler}>Delete account</button>
             </div>
+            <Link to={'/myanimefavoritlist'}>my anime favorit list</Link>
         </div>
     </>
   )

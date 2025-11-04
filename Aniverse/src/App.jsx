@@ -17,6 +17,7 @@ import MyProfile from './components/Account/MyProfile/MyProfile'
 import ProfileForm from './components/Account/ProfileForm/ProfileForm'
 import AnimeReview from './components/Anime/AnimeReview/AnimeReview'
 import PostComment from './components/Post/PostComment/PostComment'
+import MyAnimeFavoritList from './components/Anime/MyAnimeFavoritList/MyAnimeFavoritList'
 import { getUserFromToken } from './lib/auth'
 function App() {
    const [user, setUser] = useState(getUserFromToken())
@@ -35,6 +36,7 @@ function App() {
             <Route path = '/addAnime' element={<AnimeForm/>}/>
             <Route path = '/editAnime/:animeId' element={<AnimeForm/>}/>
             <Route path = '/addreview/:animeId' element={<AnimeReview/>}/>
+            <Route path = '/myanimefavoritlist' element={<MyAnimeFavoritList/>}/>
             <Route path = '/posts' element={<Posts/>}/>
             <Route path = '/post/:postId' element={<PostDetail/>}/>
             <Route path = '/addPost' element={<PostForm/>}/>

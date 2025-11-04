@@ -7,7 +7,8 @@ import { authRequest, getUserFromToken, clearTokens } from "../../../lib/auth"
 import {FaComment} from 'react-icons/fa'
 
 function PostDetail() {
-   const [post, setpost] = useState([])
+    const [post, setpost] = useState([])
+    const [comments , setComments] = useState([])
     const [errors, seterrors] = useState()
     const {postId} = useParams()
     const navigate = useNavigate()
@@ -23,9 +24,20 @@ function PostDetail() {
             seterrors(error.response.data.error)
         }
     }
+    async function getAllComments() {
+      try{
+        const response = await axios.get(`http://127.0.0.1:8000/api/post/${postId}/comment/`)
+        console.log(response.data)
+        setComments(response.data)
+      } catch(error){
+        console.log(error)
+          seterrors(error.response.data.error)
+      }
+    }
     useEffect(()=>{
         if(postId){
-            getSinglePost()
+          getSinglePost()
+          getAllComments()
         }
     },[])
     if (errors){
@@ -53,8 +65,23 @@ function PostDetail() {
         <Link to={`/editPost/${postId}`}><button>Edit post</button></Link>
           <button onClick={deleteHandeler}>Delete post</button>
       </div>
-
     </div>
+    <div className='postComment'>
+            {
+               comments.length >0
+               ?
+                comments.map((comment)=>{
+                    return(
+                        <div className='comment'>
+                            <p>{comment.text}</p>
+                        </div>
+                    )
+                })
+                :
+                <h2>No comments yet 🥺</h2>
+            }
+
+        </div>
     </>
   )
 }

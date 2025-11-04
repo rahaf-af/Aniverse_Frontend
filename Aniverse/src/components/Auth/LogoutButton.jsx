@@ -12,9 +12,9 @@ function LogoutButton({setUser}) {
     }
   return (
     <>
-      <button onClick={handleLogOut}>
-        <FiLogOut size={15}/>
-      </button>
+      <span onClick={handleLogOut}>
+        <FiLogOut color='grey'size={25}/>
+      </span>
     </>
   )
 }

@@ -3,7 +3,7 @@ import { useState , useEffect} from 'react'
 import axios from 'axios'
 import { useParams ,useNavigate } from 'react-router'
 import { authRequest, getUserFromToken, clearTokens } from "../../../lib/auth"
-
+import './ContactForm.css'
 function ContactForm() {
   const navigate = useNavigate()
   const [errors, seterrors] = useState()
@@ -31,25 +31,27 @@ function ContactForm() {
   return (
     <>
         <h1>Contac us</h1>
-      <form onSubmit={submitHandler}>
-        <div>
-            <label htmlFor='full_name'>full name: </label>
-            <input onChange={changeHandler} value={formData.full_name} id='full_name' name='full_name' type='text'/>
-        </div>
-        <div>
-            <label htmlFor='email'>Email</label>
-            <input onChange={changeHandler} value={formData.email} id='email' name='email' type='text'/>
-        </div>
-        <div>
-            <label htmlFor='subject'>Subject</label>
-            <input onChange={changeHandler} value={formData.subject} id='subject' name='subject' type='text'/>
-        </div>
-        <div>
-            <label htmlFor='message'>Message</label>
-            <textarea onChange={changeHandler} value={formData.message} id='message' name='message' type='text'/>
-        </div>
-        <button type='submit'>Submit</button>
-      </form>
+      <div className='contacform'>
+        <form onSubmit={submitHandler}>
+          <div>
+              <label htmlFor='full_name'>full name: </label>
+              <input onChange={changeHandler} value={formData.full_name} id='full_name' name='full_name' type='text'/>
+          </div>
+          <div>
+              <label htmlFor='email'>Email:</label>
+              <input onChange={changeHandler} value={formData.email} id='email' name='email' type='text'/>
+          </div>
+          <div>
+              <label htmlFor='subject'>Subject:</label>
+              <input onChange={changeHandler} value={formData.subject} id='subject' name='subject' type='text'/>
+          </div>
+          <div>
+              <label htmlFor='message'>Message:</label>
+              <textarea onChange={changeHandler} value={formData.message} id='message' name='message' type='text'/>
+          </div>
+          <button type='submit'>Submit</button>
+        </form>
+      </div>
     </>
   )
 }

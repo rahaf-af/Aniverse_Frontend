@@ -1,8 +1,8 @@
 import React, { useState } from "react"
 import axios from "axios"
-import { authRequest, getUserFromToken, clearTokens, saveTokens } from "../../lib/auth"
+import { authRequest, getUserFromToken, clearTokens, saveTokens } from "../../../lib/auth"
 import { useNavigate } from "react-router"
-
+import './Login.css'
 export default function Login({ setUser }) {
   const [formData , setformData]= useState({
     username:'',
@@ -32,12 +32,18 @@ export default function Login({ setUser }) {
   }
   return (
     <>
-        <div className="Login">
-            <h2>Login</h2>
+        <h1>Login</h1>
+        <div className="loginform">
             <form onSubmit={submitHandler}>
-                <input name='username' placeholder="Username" value={formData.username} onChange={changeHandler} />
-                <input name="password" type="password" placeholder="Password" value={formData.password} onChange={changeHandler} />
-                <button type="submit">Login</button>
+              <div>
+                <label htmlFor="username">Username:</label>
+                <input id='username' name='username' value={formData.username} onChange={changeHandler} />
+              </div>
+              <div>
+                <label htmlFor="password">Password:</label>
+                <input name="password" id='password' type="password" value={formData.password} onChange={changeHandler} />
+              </div>
+              <button type="submit">Login</button>
             </form>
         </div>
     </>

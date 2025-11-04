@@ -3,6 +3,7 @@ import { useState , useEffect} from 'react'
 import axios from 'axios'
 import { useParams ,useNavigate } from 'react-router'
 import { authRequest, getUserFromToken, clearTokens } from "../../../lib/auth"
+import './ProfileForm.css'
 
 function ProfileForm() {
   const {profileId} = useParams()
@@ -48,25 +49,27 @@ function ProfileForm() {
   return (
     <>
       <h1>Edit my Profile</h1>
-      <form onSubmit={submitHandler}>
-          <div>
-            <label htmlFor='profile_img'>profile img Link: </label>
-            <input onChange={changeHandler} value={formData.profile_img} id='profile_img' name='profile_img' type='text'/>
-          </div>
-          <div>
-            <label htmlFor='phone_numbe'></label>
-            <input onChange={changeHandler} value={formData.phone_number} id='phone_numbe' name='phone_numbe' type='text'/>
-          </div>
-          <div>
-            <label htmlFor='email'></label>
-            <input onChange={changeHandler} value={formData.email} id='email' name='email' type='text'/>
-          </div>
-          <div>
-            <label htmlFor='bio'></label>
-            <textarea onChange={changeHandler} value={formData.bio} id='bio' name='bio' type='text'/>
-          </div>
-          <button type='submit' >Edit</button>
-      </form>
+      <div className='profileform'>
+        <form onSubmit={submitHandler}>
+              <div>
+                <label htmlFor='profile_img'>profile img Link:</label>
+                <input onChange={changeHandler} value={formData.profile_img} id='profile_img' name='profile_img' type='text'/>
+              </div>
+              <div>
+                <label htmlFor='phone_number'>phone number:</label>
+                <input onChange={changeHandler} value={formData.phone_number} id='phone_number' name='phone_number' type='text'/>
+              </div>
+              <div>
+                <label htmlFor='email'>Email</label>
+                <input onChange={changeHandler} value={formData.email} id='email' name='email' type='text'/>
+              </div>
+              <div>
+                <label htmlFor='bio'>Bio</label>
+                <textarea onChange={changeHandler} value={formData.bio} id='bio' name='bio' type='text'/>
+              </div>
+              <button type='submit' >Edit</button>
+        </form>
+      </div>
     </>
   )
 }

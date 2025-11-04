@@ -3,15 +3,15 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 import {BrowserRouter , Routes , Route} from 'react-router'
-import NavBar from './components/NaavBar/NavBar'
+import NavBar from './components/NavBar/NavBar'
 import Animes from './components/Anime/AnimeIndex/Animes'
 import AnimeForm from './components/Anime/AnimeForm/AnimeForm'
 import AnimeDetail from './components/Anime/AnimeDetail/AnimeDetail'
 import Posts from './components/Post/PostIndex/PostIndex'
 import PostDetail from './components/Post/PostDetail/PostDetail'
 import PostForm from './components/Post/PostForm/PostForm'
-import Signup from './components/Auth/Signup'
-import Login from './components/Auth/Login'
+import Signup from './components/Auth/Signup/Signup'
+import Login from './components/Auth/Login/Login'
 import Home from './components/Main_comp/Home/Home'
 import MyProfile from './components/Account/MyProfile/MyProfile'
 import ProfileForm from './components/Account/ProfileForm/ProfileForm'
@@ -29,7 +29,7 @@ function App() {
       <BrowserRouter>
         <NavBar user={user} setUser={setUser}/>
         <Routes>
-            <Route path = '/signup' element={<Signup/>}/>
+            <Route path = '/' element={<Signup/>}/>
             <Route path = '/login' element={<Login setUser={setUser}/>}/>
             <Route path = '/myprofile' element={<MyProfile setUser={setUser}/>}/>ContactForm
             <Route path = '/editprofile/:profileId' element={<ProfileForm/>}/>

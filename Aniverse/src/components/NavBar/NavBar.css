@@ -1,0 +1,51 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.nav{
+    position: fixed;
+    top: 0;
+    left: 0;
+    max-width: 100%;
+    width: 100%;
+    z-index: 1000;
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 30px;
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    border-bottom: 1px solid grey;
+    margin: 0;
+    padding: 0 30px;
+
+
+}
+.nav a{ 
+    color: grey;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+.nav a:hover{
+    color: black;
+}
+header, .nav{
+    margin: 0;
+    padding: 0;
+}
+.logout{
+    margin-left: 350px;
+}
+.logo img{
+    margin-right: 300px;
+    width: 290px;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}

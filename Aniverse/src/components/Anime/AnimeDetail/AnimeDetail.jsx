@@ -46,11 +46,19 @@ function AnimeDetail() {
             console.log(response.data)
             if (response.status === 201)
                 navigate('/myanimefavoritlist')
+            elif (response.status === 500)
+                alert('the Anime is alredy in your favorite list🙂 ')
+            
         }else{
             response = await authRequest({method: 'delete', url:`http://127.0.0.1:8000/api/removeanime/${favoritId}/fromfavorit/`}) 
             setIsFavorite(false)
             console.log(isfavorite, 'i am out of your favorite list now 🥺')
             console.log(response.data) 
+            if (response.status === 204){
+                navigate('/myanimefavoritlist')
+            }else{
+                alert('the Anime is alredy in your favorite list🙂 ')
+            }
         }
     }
     useEffect(()=>{

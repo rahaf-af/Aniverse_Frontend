@@ -1,22 +1,26 @@
+ h1{
+    padding-bottom: 20px;
+    color: grey;
+}
  body{
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
 }
-.postform form {
+.animeform form {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 20px;
-  height: 300px;
+  height: 600px;
   width: 400px; 
   background-color: grey;
   flex-direction: column;
   border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
-.postform form label{
+.animeform form label{
     display: block;
     text-align: left;
     width: 100%;
@@ -25,7 +29,7 @@
     color: #502a60;
     font-weight: 500;
 }
-.postform form input{
+.animeform form input{
     width: 300px;
     height: 40px;
     box-shadow: 0 4px 10px rgba(0,0,0,0.2);
@@ -33,14 +37,14 @@
     color: #502a60;
     
 }
-.postform textarea{
+.animeform textarea{
     width: 300px;
     height: 60px;
     box-shadow: 0 4px 10px rgba(0,0,0,0.2);
     border: 1px solid #502a60;
     color: #502a60;
 }
-.postform form button{
+.animeform form button{
     box-shadow: 0 4px 10px rgba(0,0,0,0.2);
     border: 1px solid #502a60; 
     color: #502a60;

@@ -3,6 +3,7 @@ import { useState , useEffect} from 'react'
 import axios from 'axios'
 import { useParams ,useNavigate } from 'react-router'
 import { authRequest, getUserFromToken, clearTokens } from "../../../lib/auth"
+import './AnimeForm.css'
 
 function AnimeForm() {
     const {animeId} = useParams()
@@ -58,29 +59,31 @@ function AnimeForm() {
   return (
     <>
     <h1>{animeId ?`Edit ${title}`:'Add Anime'}</h1>
-    <form onSubmit={submitHandler}>
-        <div>
-            <label htmlFor='poster'>Poster Link: </label>
-            <input onChange={changeHandler} value={formData.poster} id='poster' name='poster' type='text'/>
-        </div>
-        <div>
-            <label htmlFor='title'>Title: </label>
-            <input onChange={changeHandler} value={formData.title} id='title' name='title' type='text'/>
-        </div>
-        <div>
-            <label htmlFor='genre'>Genres: </label>
-            <input onChange={changeHandler} value={formData.genre} id='genre' name='genre' type='text'/>
-        </div>
-        <div>
-            <label htmlFor='rating'>Rating: </label>
-            <input onChange={changeHandler} value={formData.global_rating} id='rating' name='rating'/>
-        </div>
-         <div>
-            <label htmlFor='description'>Description: </label>
-            <textarea onChange={changeHandler} value={formData.description} id='description' name='description' type='text'/>
-        </div>
-        <button type='submit' >{animeId ?`Edit`:'Submit'}</button>
-    </form>
+    <div className='animeform'>
+        <form onSubmit={submitHandler}>
+            <div>
+                <label htmlFor='poster'>Poster Link: </label>
+                <input onChange={changeHandler} value={formData.poster} id='poster' name='poster' type='text'/>
+            </div>
+            <div>
+                <label htmlFor='title'>Title: </label>
+                <input onChange={changeHandler} value={formData.title} id='title' name='title' type='text'/>
+            </div>
+            <div>
+                <label htmlFor='genre'>Genres: </label>
+                <input onChange={changeHandler} value={formData.genre} id='genre' name='genre' type='text'/>
+            </div>
+            <div>
+                <label htmlFor='rating'>Rating: </label>
+                <input onChange={changeHandler} value={formData.global_rating} id='rating' name='rating'/>
+            </div>
+            <div>
+                <label htmlFor='description'>Description: </label>
+                <textarea onChange={changeHandler} value={formData.description} id='description' name='description' type='text'/>
+            </div>
+            <button type='submit' >{animeId ?`Edit`:'Submit'}</button>
+        </form>
+    </div>
     </>
   )
 }

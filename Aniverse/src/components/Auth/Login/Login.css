@@ -1,11 +1,15 @@
- body{
+h1{
+    padding-bottom: 20px;
+    color: grey;
+}
+body{
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
 }
-.postform form {
-  display: flex;
+.loginform form {
+  display: flex; 
   justify-content: center;
   align-items: center;
   gap: 20px;
@@ -16,7 +20,7 @@
   border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
-.postform form label{
+.loginform form label{
     display: block;
     text-align: left;
     width: 100%;
@@ -25,7 +29,7 @@
     color: #502a60;
     font-weight: 500;
 }
-.postform form input{
+.loginform form input{
     width: 300px;
     height: 40px;
     box-shadow: 0 4px 10px rgba(0,0,0,0.2);
@@ -33,14 +37,14 @@
     color: #502a60;
     
 }
-.postform textarea{
+.loginform textarea{
     width: 300px;
     height: 60px;
     box-shadow: 0 4px 10px rgba(0,0,0,0.2);
     border: 1px solid #502a60;
     color: #502a60;
 }
-.postform form button{
+.loginform form button{
     box-shadow: 0 4px 10px rgba(0,0,0,0.2);
     border: 1px solid #502a60; 
     color: #502a60;

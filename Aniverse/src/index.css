@@ -4,8 +4,8 @@
   font-weight: 400;
 
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87); 
-  background-color: #814099;
+  color: rgba(255, 255, 255, 0.87);
+  background:linear-gradient(135deg,#502a60, #502a60);
   /* background-color: #8a5b7d; */
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -16,6 +16,10 @@ a {
   font-weight: 500;
   color: white;
   text-decoration: inherit;
+}
+h1{
+    padding-bottom: 20px;
+    color: grey;
 }
 /* 
 a:hover {

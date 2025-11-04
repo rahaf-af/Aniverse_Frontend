@@ -3,7 +3,7 @@ import {useState } from 'react'
 import axios from 'axios'
 import { useNavigate } from 'react-router'
 import { Link } from 'react-router'
-
+import './Signup.css'
 function Signup() {
   const [formData , setformData]= useState({
     first_name: '',
@@ -31,14 +31,29 @@ function Signup() {
   }
   return (
     <>
-      <div className='signup'>
+      <div className='signupform'>
         <h2>Sign Up</h2>
         <form onSubmit={submitHandler}>
-          <input name='first_name' placeholder='First name' value={formData.first_name} onChange={changeHandler} />
-          <input name='last_name' placeholder='Last name' value={formData.last_name} onChange={changeHandler} />
-          <input name='username'placeholder='Username' value={formData.username} onChange={changeHandler} />
-          <input name='email'placeholder='Email' value={formData.email} onChange={changeHandler} />
-          <input name='password' type='Password' placeholder='Password' value={formData.password} onChange={changeHandler} />
+          <div>
+            <label htmlFor='first_name'>First name:</label>
+            <input id='first_name' name='first_name' value={formData.first_name} onChange={changeHandler} />
+          </div>
+          <div>
+            <label htmlFor="last_name">Last name:</label>
+            <input id='last_name' name='last_name' value={formData.last_name} onChange={changeHandler} />
+          </div>
+          <div>
+            <label htmlFor='username'>Username:</label>
+            <input  id='username' name='username' value={formData.username} onChange={changeHandler} />
+          </div>
+          <div>
+            <label htmlFor='email'>Email:</label>
+            <input id='email' name='email' value={formData.email} onChange={changeHandler} />
+          </div>
+          <div>
+            <label htmlFor='password'>Password:</label>
+            <input id='password' name='password' type='Password'  value={formData.password} onChange={changeHandler} />
+          </div>
           <button type='submit'>Sign Up</button>
         </form>
     </div>

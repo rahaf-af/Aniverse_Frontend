@@ -8,15 +8,24 @@ import { authRequest, getUserFromToken, clearTokens } from "../../../lib/auth"
 function MyAnimeFavoritList() {
     const [favoritlist, setFavoritList] = useState([])
     const [errors, seterrors] = useState()
+    const [favoritId, setfavoritId]= useState('')
+    const {animeId} = useParams()
+    console.log(animeId)
     async function getAnimeFavoritList() {
         try{
             const response = await authRequest({method: 'get', url:`http://127.0.0.1:8000/api/myanimefavoritlist/`})
             console.log(response.data)
             setFavoritList(response.data)
+            setfavoritId (response.data.data[0].id)
         } catch(error){
             console.log(error)
             seterrors(error.response.data.error)
         }
+    }
+    async function removeanime(favoritId){
+        const response = await authRequest({method: 'delete', url:`http://127.0.0.1:8000/api/removeanime/${favoritId}/fromfavorit/`}) 
+        console.log('i am out of your favorite list now 🥺')
+        console.log(response.data) 
     }
     useEffect(()=>{
         getAnimeFavoritList() 
@@ -35,7 +44,7 @@ function MyAnimeFavoritList() {
                     return(
                         <div className='animecard' key={favorit.id}>
                             <img src={favorit.anime_poster} alt='anime poster'/>
-                            <p>❤️ {favorit.anime}</p>
+                            <p><strong onClick={()=> removeanime(favorit.id)}>[❌] </strong>{favorit.anime}</p>
                         </div>
                     )
                 })

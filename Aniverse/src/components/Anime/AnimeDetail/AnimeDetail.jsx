@@ -3,12 +3,13 @@ import { useEffect , useState } from 'react'
 import { useParams , useNavigate, Link } from 'react-router'
 import axios from 'axios'
 import { authRequest, getUserFromToken, clearTokens } from "../../../lib/auth"
-import {FaComment} from 'react-icons/fa'
+import {FaComment,FaRegHeart ,FaHeart } from 'react-icons/fa'
 
 function AnimeDetail() {
     const [anime, setanime] = useState([])
     const [reviews , setreviews] = useState([])
     const [errors, seterrors] = useState()
+    const [isfavorite , setIsFavorite] = useState(false)
     const {animeId} = useParams()
     const navigate = useNavigate()
     console.log(animeId)
@@ -31,6 +32,25 @@ function AnimeDetail() {
         } catch(error){
             console.log(error)
             seterrors(error.response.data.error)
+        }
+    }
+    async function isfavoriteHandler(event){
+        event.preventDefault()
+        let favoritId
+        let response ={}
+        if (!isfavorite){
+            response = await authRequest({method: 'post', url:`http://127.0.0.1:8000/api/addanime/${animeId}/tofavorit/`})
+            favoritId = response.data.data[0].id
+            setIsFavorite(true)
+            console.log(isfavorite,'i am in your favorite list now 😍')
+            console.log(response.data)
+            if (response.status === 201)
+                navigate('/myanimefavoritlist')
+        }else{
+            response = await authRequest({method: 'delete', url:`http://127.0.0.1:8000/api/removeanime/${favoritId}/fromfavorit/`}) 
+            setIsFavorite(false)
+            console.log(isfavorite, 'i am out of your favorite list now 🥺')
+            console.log(response.data) 
         }
     }
     useEffect(()=>{
@@ -56,6 +76,7 @@ function AnimeDetail() {
             <p></p>
             <div className='interacticons'>
                 <Link to={`/addreview/${animeId}`}>{anime.review_count}<FaComment size={25}/></Link>
+                <span onClick={isfavoriteHandler}>{anime.favorit_count}{isfavorite ? <FaHeart color='red' size={25}/>:<FaRegHeart color='red' size={25}/>}</span>
             </div>
             <div className='animeInfo'>
                 <h1>Title: {anime.title}</h1>

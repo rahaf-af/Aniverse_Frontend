@@ -9,7 +9,6 @@ import { Link } from 'react-router'
 
 function MyProfile() {
     const [profile, setprofile] = useState([])
-    const [errors, seterrors] = useState()
     const [profileId, setprofileId] = useState()
     const navigate = useNavigate()
 

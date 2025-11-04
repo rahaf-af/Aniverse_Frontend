@@ -20,6 +20,7 @@ import PostComment from './components/Post/PostComment/PostComment'
 import MyAnimeFavoritList from './components/Anime/MyAnimeFavoritList/MyAnimeFavoritList'
 import MyPostFavoritList from './components/Post/MyPostFavoritList/MyPostFavoritList'
 import { getUserFromToken } from './lib/auth'
+import ProtectedRoute from './components/Auth/ProtectedRoute/'
 function App() {
    const [user, setUser] = useState(getUserFromToken())
   return (

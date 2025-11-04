@@ -7,6 +7,7 @@ import {FaComment} from 'react-icons/fa'
 
 function AnimeDetail() {
     const [anime, setanime] = useState([])
+    const [reviews , setreviews] = useState([])
     const [errors, seterrors] = useState()
     const {animeId} = useParams()
     const navigate = useNavigate()
@@ -14,9 +15,19 @@ function AnimeDetail() {
 
     async function getSingleAnime() {
         try{
-        const response = await axios.get(`http://127.0.0.1:8000/api/anime/${animeId}/`)
-        console.log(response.data)
-        setanime(response.data)
+            const response = await axios.get(`http://127.0.0.1:8000/api/anime/${animeId}/`)
+            console.log(response.data)
+            setanime(response.data)
+        } catch(error){
+            console.log(error)
+            seterrors(error.response.data.error)
+        }
+    }
+    async function getAllReviews() {
+        try{
+            const response = await axios.get(`http://127.0.0.1:8000/api/anime/${animeId}/review/`)
+            console.log(response.data)
+            setreviews(response.data)
         } catch(error){
             console.log(error)
             seterrors(error.response.data.error)
@@ -25,13 +36,14 @@ function AnimeDetail() {
     useEffect(()=>{
         if(animeId){
             getSingleAnime()
+            getAllReviews()
         }
     },[])
     if (errors){
         return <h3>{errors}</h3>
     }
     async function deleteHandeler(event) {
-        const response = await authRequest({method:'delete',url:`http://127.0.0.1:8000/api/anime/${animeId}/review`})
+        const response = await authRequest({method:'delete',url:`http://127.0.0.1:8000/api/anime/${animeId}/`})
         console.log(response.data)
         navigate('/animes')
     } 
@@ -55,6 +67,22 @@ function AnimeDetail() {
                 <Link to={`/editAnime/${animeId}`}><button>Edit anime</button></Link>
                 <button onClick={deleteHandeler}>Delete anime</button>
             </div>
+        </div>
+        <div className='animereviews'>
+            {
+               reviews.length >0
+               ?
+                reviews.map((review)=>{
+                    return(
+                        <div className='review'>
+                            <p><strong>{Array(review.rating).fill().map((_,index)=> (<span key={index}>⭐️</span>))}</strong></p> 
+                            <p>{review.text}</p>
+                        </div>
+                    )
+                })
+                :
+                <h2>No reviews yet 🥺</h2>
+            }
 
         </div>
     </>

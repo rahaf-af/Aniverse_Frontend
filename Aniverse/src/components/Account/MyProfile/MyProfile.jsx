@@ -47,7 +47,10 @@ function MyProfile() {
                 <Link to={`/editprofile/${profileId}`}><button>Edit account</button></Link>
                 <button onClick={deleteHandeler}>Delete account</button>
             </div>
-            <Link to={'/myanimefavoritlist'}>my anime favorit list</Link>
+            <div>
+                <Link to={'/myanimefavoritlist'}>my anime favorit list</Link>
+                <Link to ={'/mypostfavoritlist'}> my post favorit list</Link>
+            </div>
         </div>
     </>
   )

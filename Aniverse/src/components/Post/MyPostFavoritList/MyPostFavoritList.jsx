@@ -5,12 +5,13 @@ import { useParams ,useNavigate } from 'react-router'
 import { Link } from 'react-router'
 import { authRequest, getUserFromToken, clearTokens } from "../../../lib/auth"
 
-function MyAnimeFavoritList() {
+
+function MyPostFavoritList() {
     const [favoritlist, setFavoritList] = useState([])
     const [errors, seterrors] = useState()
     async function getAnimeFavoritList() {
         try{
-            const response = await authRequest({method: 'get', url:`http://127.0.0.1:8000/api/myanimefavoritlist/`})
+            const response = await authRequest({method: 'get', url:`http://127.0.0.1:8000/api/mypostfavoritlist/`})
             console.log(response.data)
             setFavoritList(response.data)
         } catch(error){
@@ -26,7 +27,7 @@ function MyAnimeFavoritList() {
     }
   return (
     <>
-        <h1>My Anime favorit list </h1>
+        <h1>My Post favorit list </h1>
         <div className='Animes'>
             {
                favoritlist.length >0
@@ -34,8 +35,8 @@ function MyAnimeFavoritList() {
                 favoritlist.map((favorit)=>{
                     return(
                         <div className='animecard' key={favorit.id}>
-                            <img src={favorit.anime_poster} alt='anime poster'/>
-                            <p>❤️ {favorit.anime}</p>
+                            <img src={favorit.post_poste} alt='anime poster'/>
+                            <p>❤️ Published by: @{favorit.user_username}</p>
                         </div>
                     )
                 })
@@ -48,5 +49,6 @@ function MyAnimeFavoritList() {
   )
 }
 
-export default MyAnimeFavoritList
-//myanimefavoritlist/
+export default MyPostFavoritList
+
+

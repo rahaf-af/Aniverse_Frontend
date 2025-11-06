@@ -1,0 +1,28 @@
+.boxes{
+    margin-top: 30px;
+    justify-content:center;
+    align-items:center;
+    display: grid;
+    grid-gap: 16px;
+    grid-template-columns: 1fr 1fr 1fr 1fr ;
+}
+.box .imgdiv img{
+    height: 200px;
+    width: 200px;
+    border-radius: 10px;
+    align-items: end;
+    border-radius: 10px;
+    border: 1px solid grey;
+    text-decoration: inherit;
+    transform: all 0.3s ease;
+}
+
+.box .imgdiv img:hover{
+  transform: translateY(-5px);
+}
+.text{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}

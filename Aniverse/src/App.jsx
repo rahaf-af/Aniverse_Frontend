@@ -21,6 +21,7 @@ import MyAnimeFavoritList from './components/Anime/MyAnimeFavoritList/MyAnimeFav
 import MyPostFavoritList from './components/Post/MyPostFavoritList/MyPostFavoritList'
 import ContactForm from './components/Main_comp/ContactForm/ContactForm'
 import About from './components/Main_comp/About/About'
+import Platforms from './components/Main_comp/Platform/Platforms'
 import { getUserFromToken } from './lib/auth'
 import ProtectedRoute from './components/Auth/ProtectedRoute/'
 function App() {
@@ -36,6 +37,7 @@ function App() {
             <Route path = '/editprofile/:profileId' element={<ProfileForm/>}/>
             <Route path = '/' element={<Home/>}/>
             <Route path = '/about' element={<About/>}/>
+            <Route path = '/platforms' element={<Platforms/>}/>
             <Route path = '/contacus' element={<ContactForm/>}/>
             <Route path = '/animes' element={<Animes/>}/>
             <Route path = '/anime/:animeId' element={<AnimeDetail  user={user} setUser={setUser}/>}/>

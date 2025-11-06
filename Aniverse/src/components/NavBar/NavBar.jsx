@@ -14,6 +14,7 @@ function NavBar({ user, setUser }) {
         <Link to={'/about'}>About</Link>
         <Link to={'/animes'}>Animes</Link>
         <Link to ={'/posts'}>Posts</Link>
+        <Link to ={'/platforms'}>Platforms</Link>
         {
           user
             ?

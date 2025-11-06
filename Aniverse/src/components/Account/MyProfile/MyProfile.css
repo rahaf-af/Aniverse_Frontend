@@ -38,3 +38,10 @@
 .profileinfo p{
     color: #502a60;
 }
+.favoritlists{
+    margin-top: 20px;
+}
+.favoritlists a{
+    display: inline;
+    gap: 10px;
+}

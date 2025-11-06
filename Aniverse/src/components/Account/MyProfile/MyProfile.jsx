@@ -64,8 +64,8 @@ function MyProfile() {
                     <p><strong>bio: </strong>{profile.bio}</p>
                 </div>
                 <div className='favoritlists'>
-                    <Link to={'/myanimefavoritlist'}>my anime favorit list</Link>
-                    <Link to ={'/mypostfavoritlist'}> my post favorit list</Link>
+                    <Link to={'/myanimefavoritlist'}>📋 anime favorits. </Link>
+                    <Link to ={'/mypostfavoritlist'}>📋 post favorits. </Link>
                 </div>
             </div>
         </div>

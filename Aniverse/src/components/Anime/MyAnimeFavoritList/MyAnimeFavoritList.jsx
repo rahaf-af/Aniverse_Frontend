@@ -25,7 +25,8 @@ function MyAnimeFavoritList() {
     async function removeanime(favoritId){
         const response = await authRequest({method: 'delete', url:`http://127.0.0.1:8000/api/removeanime/${favoritId}/fromfavorit/`}) 
         console.log('i am out of your favorite list now 🥺')
-        console.log(response.data) 
+        console.log(response.data)
+        getAnimeFavoritList() 
     }
     useEffect(()=>{
         getAnimeFavoritList() 
@@ -44,7 +45,7 @@ function MyAnimeFavoritList() {
                     return(
                         <div className='animecard' key={favorit.id}>
                             <img src={favorit.anime_poster} alt='anime poster'/>
-                            <p><strong onClick={()=> removeanime(favorit.id)}>[❌] </strong>{favorit.anime}</p>
+                            <p><small onClick={()=> removeanime(favorit.id)}>[❌]</small>{favorit.anime}</p>
                         </div>
                     )
                 })

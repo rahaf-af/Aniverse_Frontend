@@ -2,10 +2,10 @@ import React,{useState, useEffect} from 'react'
 import {FaStar} from 'react-icons/fa'
 import { authRequest, getUserFromToken, clearTokens } from "../../../lib/auth"
 import { useParams , useNavigate, Link } from 'react-router'
-
+import './AnimeReview.css'
 
 const colors = {
-    orange: '#FFBA5A',
+    orange: '#502a60',
     grey: '#a9a9a9'
 }
 function AnimeReview() {
@@ -51,53 +51,33 @@ function AnimeReview() {
   return (
     <>
         <h1>Add Anime Review</h1>
-        <form onSubmit={submitHandler}>
-            <div style={styles.container}>
-                <div style ={styles.stars}>
-                {stars.map((_, index) => {
+        <div className='animereviewform'>
+            <form onSubmit={submitHandler}>
+                <div className='stars'>
+                    {stars.map((_, index) => {
                     return(
-                        <FaStar 
-                        key={index} 
-                        size={24}
-                        style={{
-                            marginRight: 10,
-                            cursor: 'pointer'
-                        }}
-                        color={(hoverValue || currentValue) > index ? colors.orange : colors.grey}
-                        onClick={()=> handelClick(index +1)}
-                        onMouseOver={()=> handelMouseOver(index +1)}
-                        onMouseLeave={handelMouseLeave}
-                        />)})}
-                        <div>
-                            <textarea value={reviewtext} style={styles.textarea} placeholder='Add your Feedback' onChange={changeHandler }></textarea>
-                            <button style={styles.button} type='submit'>Submit</button>
-                        </div>
+                    <FaStar 
+                    key={index} 
+                    size={24}
+                    style={{
+                    marginRight: 10,
+                    cursor: 'pointer'
+                    }}
+                    color={(hoverValue || currentValue) > index ? colors.orange : colors.grey}
+                    onClick={()=> handelClick(index +1)}
+                    onMouseOver={()=> handelMouseOver(index +1)}
+                    onMouseLeave={handelMouseLeave}
+                    />)})}
                 </div>
-            </div>
-                            
-        </form>
+                <div>
+                    <label htmlFor='feedback'>Feedback:</label>
+                    <textarea id='feedback' value={reviewtext}  onChange={changeHandler }></textarea>
+                </div>     
+                <button type='submit'>Submit</button>        
+            </form>
+        </div>
     </>
   )
 }
-const styles ={
-    container: {
-        display:'flex',
-        flexDirection:'column',
-        alignItems: 'center'
-    },
-    textarea: {
-        border: '1ps solid #a9a9a9',
-        borderRadius: 5,
-        width: 300,
-        margin: '20px 0',
-        minHeight: 100,
-        padding: 10
-    },
-    button: {
-      border: '1ps solid #a9a9a9',
-      borderRadius: 5,
-      width: 300,
-      padding: 10 
-    }
-}
+
 export default AnimeReview

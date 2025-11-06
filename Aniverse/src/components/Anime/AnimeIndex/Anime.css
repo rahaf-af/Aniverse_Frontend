@@ -14,11 +14,17 @@ h1{
     background: rgba(255, 255, 255, 0.2);
     backdrop-filter: blur(10px);
     border: 1px solid rgb(0, 0, 0);
-    color: #c5c6c7;
+    color: grey;
     border: 1px solid grey;
     text-decoration: inherit;
+    transform: all 0.3s ease;
 }
-
+.animecard:hover{
+  transform: translateY(-5px);
+}
+.animecard p{
+  color: grey;
+}
 .Animes{
   padding: 0;
   display: grid;

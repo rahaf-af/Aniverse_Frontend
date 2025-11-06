@@ -1,0 +1,43 @@
+.homeimg img{
+    border-radius: 20px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+    height: 450px;
+    border: 3px solid grey;
+}
+
+.homeimg{
+    padding-top: 40px;
+}
+.animesection{
+   padding-top: 40px;
+    padding-bottom: 40px;
+}
+.animesection hr,h2{
+    color: grey;
+}
+.Animes{
+    padding-top: 10px;
+}
+.animesection h5{
+   color: grey; 
+   margin-left: auto;
+}
+.animesection .animeh3{
+    display: block;
+}
+.animesection .animeh3 h5{
+    display: block;
+    margin-right: auto;
+    text-align: right;
+    color: grey;
+}
+.aboutsection .abouth3 h5{
+     display: block;
+    margin-right: auto;
+    text-align: right;
+    color: grey;
+}
+.aboutsection{
+    padding-top: 40px;
+    padding-bottom: 40px;
+}

@@ -1,0 +1,40 @@
+.profile {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.profile .profileimg img{
+   width: 350px;
+   height: 500px;
+   border-radius: 15px;
+   border: 1px solid grey;
+    
+}
+.profile .profileimg .postbuttons{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    padding-top: 40px;
+}
+.profile .profileimg .postbuttons .deletebutton{
+    background-color: rgb(143, 25, 25);
+
+}
+.profileinfo{
+    border-radius: 10px;
+    height: 500px;
+    width: 400px;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    border: 1px solid grey;
+    text-decoration: inherit;
+    transform: all 0.3s ease;
+    padding-bottom: 50px;;
+}
+.profileinfo:hover{
+  transform: translateY(-5px);
+}
+.profileinfo p{
+    color: #502a60;
+}

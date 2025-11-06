@@ -1,0 +1,79 @@
+.singleanime{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+}
+.div1{
+    padding-top: 40px;
+    transform: all 0.3s ease;
+}
+.div1:hover{
+    transform: translateY(-5px);
+} 
+.animeposter img{
+   border-radius: 20px;
+   border: 1px solid grey;
+}
+.div2{
+    width: 500px;
+}
+.interacticons{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    color: gray;
+    margin:10px;
+    padding: 10px;
+}
+.h1{
+    padding-bottom: 40px;
+}
+.animebuttons {
+    padding-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+.animebuttons button{
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    border: 1px solid #502a60; 
+    color: #502a60;
+    width: 120px;
+    font-weight: 500;
+    background-color: grey;
+
+}
+.animereviews{
+    padding-top: 40px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+    gap: 15px;
+}
+h3{
+    color: grey;
+}
+.review{
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgb(0, 0, 0);
+    color: #502a60;
+    border: 1px solid grey;
+    margin-top: 15px;
+    width: 400px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+.review p{
+    margin:3px;
+    padding: 3px;
+    color: #502a60;
+}
+.animeInfo p{
+    margin:5px;
+    padding: 5px;
+}

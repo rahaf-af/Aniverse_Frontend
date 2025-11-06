@@ -2,7 +2,7 @@ import React,{useState, useEffect} from 'react'
 import {FaStar} from 'react-icons/fa'
 import { authRequest, getUserFromToken, clearTokens } from "../../../lib/auth"
 import { useParams , useNavigate, Link } from 'react-router'
-
+import './PostComment.css'
 
 function PostComment() {
     const {postId} = useParams()
@@ -32,38 +32,17 @@ function PostComment() {
   return (
     <>
         <h1>Add comment </h1>
-        <form onSubmit={submitHandler}>
-            <div style={styles.container}>
-                <textarea value={reviewtext} style={styles.textarea} placeholder='Add your Feedback' onChange={changeHandler}></textarea>
-                <button style={styles.button} type='submit'>Submit</button>
-            </div>      
-        </form>
+        <div className='commentform'>
+            <form onSubmit={submitHandler}>
+                <div>
+                    <label htmlFor='comment'>Comment:</label>
+                    <textarea id='comment' onChange={changeHandler}></textarea>
+                </div>
+                <button type='submit'>Submit</button>   
+            </form>
+        </div>
     </>
   )
 }
-const styles ={
-    container: {
-        display:'flex',
-        flexDirection:'column',
-        alignItems: 'center',
-        justifyContent: 'center',
-        width: '100%'
-    }, 
-    textarea: {
-        border: '1ps solid #a9a9a9',
-        borderRadius: 5,
-        width: 300,
-        margin: '20px 0',
-        minHeight: 100,
-        padding: 10
-    },
-    button: {
-      border: '1ps solid #a9a9a9',
-      borderRadius: 5,
-      width: 300,
-      padding: 10 
-    }
-}
-
 export default PostComment
 

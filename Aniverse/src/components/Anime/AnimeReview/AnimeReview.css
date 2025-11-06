@@ -1,0 +1,48 @@
+h1{
+    padding-bottom: 20px;
+    color: grey;
+}
+.animereviewform form {
+  gap: 20px;
+  height: 300px;
+  width: 400px; 
+  background-color: grey;
+  flex-direction: column;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+.animereviewform form label{
+    display: block;
+    text-align: left;
+    width: 100%;
+    margin-bottom: 5px;
+    padding-right: 30px;
+    color: #502a60;
+    font-weight: 500;
+}
+.animereviewform form input{
+    width: 300px;
+    height: 40px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    border: 1px solid #502a60;
+    color: #502a60;
+    
+}
+.animereviewform textarea{
+    width: 300px;
+    height: 100px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    border: 1px solid #502a60;
+    color: #502a60;
+}
+.animereviewform form button{
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    border: 1px solid #502a60; 
+    color: #502a60;
+    width: 100px;
+    font-weight: 500;
+}
+.animereviewform .stars{
+    display: inline;
+    justify-content: center;
+}

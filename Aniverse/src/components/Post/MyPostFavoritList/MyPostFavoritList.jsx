@@ -29,6 +29,7 @@ function MyPostFavoritList() {
         const response = await authRequest({method: 'delete', url:`http://127.0.0.1:8000/api/removepost/${favoritId}/fromfavorit/`}) 
         console.log('i am out of your favorite list now 🥺')
         console.log(response.data) 
+        getPostFavoritList() 
     }
   return (
     <>

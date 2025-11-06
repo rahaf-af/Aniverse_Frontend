@@ -8,21 +8,24 @@ function NavBar({ user, setUser }) {
     <>
     <div className='nav'>
       <div className='logo'>
-        <img src='/logo.png' alt='logo'/>
+        <img src='/logo4.jpg' alt='logo'/>
       </div>
-        <Link to={'/animes'}>All animes </Link>
-        <Link to ={'/posts'}>All posts</Link>
+        <Link to={'/home'}>Home</Link>
+        <Link to={'/about'}>About</Link>
+        <Link to={'/animes'}>Animes</Link>
+        <Link to ={'/posts'}>Posts</Link>
         {
           user
             ?
             <>
-              <Link to ={'/addPost'}>Add post</Link>
               <Link to = {'/addAnime'}>Add Anime</Link>
-              <Link to={'/myprofile'}>my profile</Link>
-              <Link to={'/contacus'}>Contacus</Link>
+              <Link to ={'/addPost'}>Add post</Link>
+              <Link to={'/contacus'}>Contact us</Link>
+               <Link to={'/myprofile'} className='profilelink'><div className='profilecircle'><img src='/profilelogo.PNG' alt='profilelogo'></img></div></Link>
               <div className='logout'>
                 <LogoutButton setUser={setUser}></LogoutButton>
               </div>
+              
             </>
             :
             <>

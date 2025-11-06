@@ -4,8 +4,9 @@ import { useParams , useNavigate, Link } from 'react-router'
 import axios from 'axios'
 import { authRequest, getUserFromToken, clearTokens } from "../../../lib/auth"
 import {FaComment,FaRegHeart ,FaHeart } from 'react-icons/fa'
+import './AnimeDetail.css'
 
-function AnimeDetail() {
+function AnimeDetail({ user, setUser }) {
     const [anime, setanime] = useState([])
     const [reviews , setreviews] = useState([])
     const [errors, seterrors] = useState()
@@ -39,24 +40,28 @@ function AnimeDetail() {
         let favoritId
         let response ={}
         if (!isfavorite){
-            response = await authRequest({method: 'post', url:`http://127.0.0.1:8000/api/addanime/${animeId}/tofavorit/`})
-            favoritId = response.data.data[0].id
-            setIsFavorite(true)
-            console.log(isfavorite,'i am in your favorite list now 😍')
-            console.log(response.data)
-            if (response.status === 201)
-                navigate('/myanimefavoritlist')
-            elif (response.status === 500)
+            try{
+                response = await authRequest({method: 'post', url:`http://127.0.0.1:8000/api/addanime/${animeId}/tofavorit/`})
+                favoritId = response.data.data[0].id
+                setIsFavorite(true)
+                console.log(isfavorite,'i am in your favorite list now 😍')
+                console.log(response.data)
+                if (response.status === 201)
+                    navigate('/myanimefavoritlist')
+            }catch{
                 alert('the Anime is alredy in your favorite list🙂 ')
+            }
             
         }else{
-            response = await authRequest({method: 'delete', url:`http://127.0.0.1:8000/api/removeanime/${favoritId}/fromfavorit/`}) 
-            setIsFavorite(false)
-            console.log(isfavorite, 'i am out of your favorite list now 🥺')
-            console.log(response.data) 
-            if (response.status === 204){
-                navigate('/myanimefavoritlist')
-            }else{
+            try{
+                response = await authRequest({method: 'delete', url:`http://127.0.0.1:8000/api/removeanime/${favoritId}/fromfavorit/`}) 
+                setIsFavorite(false)
+                console.log(isfavorite, 'i am out of your favorite list now 🥺')
+                console.log(response.data) 
+                if (response.status === 204){
+                    navigate('/myanimefavoritlist')
+                }
+            }catch{
                 alert('the Anime is alredy in your favorite list🙂 ')
             }
         }
@@ -78,26 +83,37 @@ function AnimeDetail() {
   return (
     <>
         <div className='singleanime'>
-            <div className='animeposter'>
-                <img src={anime.poster} alt='anime poster'/>
+            <div className='div1'>
+                <div className='animeposter'>
+                    <img src={anime.poster} alt='anime poster'/>
+                </div>
+                {
+                    String(anime.publisher_id) === String(user?.user_id)
+                    ?
+                    <div className='animebuttons'>
+                        <Link to={`/editAnime/${animeId}`}><button>Edit anime</button></Link>
+                        <button onClick={deleteHandeler}>Delete anime</button>
+                    </div>
+                    :<p></p>
+                }
             </div>
             <p></p>
-            <div className='interacticons'>
-                <Link to={`/addreview/${animeId}`}>{anime.review_count}<FaComment size={25}/></Link>
-                <span onClick={isfavoriteHandler}>{anime.favorit_count}{isfavorite ? <FaHeart color='red' size={25}/>:<FaRegHeart color='red' size={25}/>}</span>
-            </div>
-            <div className='animeInfo'>
-                <h1>Title: {anime.title}</h1>
-                <p>Genres: {anime.genre}</p>
-                <strong><p>Rating: {anime.global_rating} ⭐</p></strong>
-                <p>Description: {anime.description}</p>
-            </div>
-            <div className='animebuttons'>
-                <Link to={`/editAnime/${animeId}`}><button>Edit anime</button></Link>
-                <button onClick={deleteHandeler}>Delete anime</button>
+                <div className='div2'>
+                    <div className='animeInfo'>
+                        <h1>Title: {anime.title}</h1>
+                        <p><strong>Genres:</strong> {anime.genre}</p>
+                        <strong><p>Rating: {anime.global_rating} ⭐</p></strong>
+                        <p><strong>Description: </strong> {anime.description}</p>
+                    </div>
+                    <div className='interacticons'>
+                        <Link to={`/addreview/${animeId}`}>{anime.review_count}<FaComment size={25}/></Link>
+                        <span onClick={isfavoriteHandler}>{anime.favorit_count}{isfavorite ? <FaHeart color='red' size={25}/>:<FaRegHeart color='red' size={25}/>}</span>
+                    </div>
             </div>
         </div>
         <div className='animereviews'>
+            <h3 color='grey' >Reviews</h3>
+            <hr color='grey' width='100%'></hr>
             {
                reviews.length >0
                ?
@@ -106,6 +122,7 @@ function AnimeDetail() {
                         <div className='review'>
                             <p><strong>{Array(review.rating).fill().map((_,index)=> (<span key={index}>⭐️</span>))}</strong></p> 
                             <p>{review.text}</p>
+                            <p>@{review.user}</p>
                         </div>
                     )
                 })

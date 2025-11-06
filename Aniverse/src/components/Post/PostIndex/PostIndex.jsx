@@ -23,15 +23,15 @@ function Posts() {
   }
   return (
     <>
-    <div className='posts'>
-      <h1>All posts</h1>
+     <h1>All posts</h1>
+    <div className='Animes'>
       {
         posts.length 
              ?
               posts.map((post)=>{
               return(
                 <Link to= {`/post/${post.id}/`}key={post.id}>
-                  <div className='postcard'>
+                  <div className='animecard'>
                     <p>@{post.auther}</p>
                     <img src={post.poster} alt='post poster'/>
                     <p>{post.text}</p>

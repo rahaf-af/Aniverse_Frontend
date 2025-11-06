@@ -20,6 +20,7 @@ import PostComment from './components/Post/PostComment/PostComment'
 import MyAnimeFavoritList from './components/Anime/MyAnimeFavoritList/MyAnimeFavoritList'
 import MyPostFavoritList from './components/Post/MyPostFavoritList/MyPostFavoritList'
 import ContactForm from './components/Main_comp/ContactForm/ContactForm'
+import About from './components/Main_comp/About/About'
 import { getUserFromToken } from './lib/auth'
 import ProtectedRoute from './components/Auth/ProtectedRoute/'
 function App() {
@@ -30,19 +31,20 @@ function App() {
         <NavBar user={user} setUser={setUser}/>
         <Routes>
             <Route path = '/' element={<Signup/>}/>
-            <Route path = '/login' element={<Login setUser={setUser}/>}/>
-            <Route path = '/myprofile' element={<MyProfile setUser={setUser}/>}/>ContactForm
+            <Route path = '/login' element={<Login user={user} setUser={setUser}/>}/>
+            <Route path = '/myprofile' element={<MyProfile  user={user} setUser={setUser}/>}/>ContactForm
             <Route path = '/editprofile/:profileId' element={<ProfileForm/>}/>
             <Route path = '/home' element={<Home/>}/>
+            <Route path = '/about' element={<About/>}/>
             <Route path = '/contacus' element={<ContactForm/>}/>
             <Route path = '/animes' element={<Animes/>}/>
-            <Route path = '/anime/:animeId' element={<AnimeDetail/>}/>
+            <Route path = '/anime/:animeId' element={<AnimeDetail  user={user} setUser={setUser}/>}/>
             <Route path = '/addAnime' element={<AnimeForm/>}/>
             <Route path = '/editAnime/:animeId' element={<AnimeForm/>}/>
             <Route path = '/addreview/:animeId' element={<AnimeReview/>}/>
             <Route path = '/myanimefavoritlist' element={<MyAnimeFavoritList/>}/>
             <Route path = '/posts' element={<Posts/>}/>
-            <Route path = '/post/:postId' element={<PostDetail/>}/>
+            <Route path = '/post/:postId' element={<PostDetail user={user} setUser={setUser}/>}/>
             <Route path = '/addPost' element={<PostForm/>}/>
             <Route path = '/editPost/:postId' element={<PostForm/>}/>
             <Route path = '/addcomment/:postId' element={<PostComment/>}/>

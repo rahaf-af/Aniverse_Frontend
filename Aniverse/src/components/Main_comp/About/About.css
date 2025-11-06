@@ -1,0 +1,68 @@
+.aboutintro h2,p{
+    color: gray;
+    padding-top: 30px;
+    padding-bottom: 40px;
+}
+
+.aboutwho{
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+.aboutboxes{
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+
+
+.aboutboxes{
+  display: grid;
+  grid-gap: 16px;
+  grid-template-columns: 1fr 1fr 1fr ;
+}
+.aboutboxes .box1 ,.box2 ,.box3{
+    border-radius: 10px;
+    height: 250px;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgb(0, 0, 0);
+    color: #502a60;
+    border: 1px solid grey;
+    text-decoration: inherit;
+    transform: all 0.3s ease;
+}
+.aboutboxes ,.box1:hover ,.box2:hover ,.box3:hover{
+  transform: translateY(-5px);
+}
+.aboutboxes p{
+    color: #502a60;
+    padding-top: 10px;
+}
+.aboutboxes img{
+    width: 100px;
+    height: 120px;
+    padding-top: 10px;
+}
+/* .aboutcontent hr{
+    margin-top: 10px;
+    margin-bottom: 10px;
+} */
+.socialdiv .social{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.socialdiv .social a{
+    color: grey;
+    transition: color 0.3s ease;
+}
+.socialdiv a:hover{
+    color: black;
+}
+.socialdiv{
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+.socialdiv h3,a{
+    color: grey;
+}

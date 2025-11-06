@@ -33,7 +33,7 @@ function App() {
         <Routes>
             <Route path = '/signup' element={<Signup/>}/>
             <Route path = '/login' element={<Login user={user} setUser={setUser}/>}/>
-            <Route path = '/myprofile' element={<MyProfile  user={user} setUser={setUser}/>}/>ContactForm
+            <Route path = '/myprofile' element={<MyProfile  user={user} setUser={setUser}/>}/>
             <Route path = '/editprofile/:profileId' element={<ProfileForm/>}/>
             <Route path = '/' element={<Home/>}/>
             <Route path = '/about' element={<About/>}/>

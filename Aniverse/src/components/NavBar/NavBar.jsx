@@ -10,7 +10,7 @@ function NavBar({ user, setUser }) {
       <div className='logo'>
         <img src='/logo4.jpg' alt='logo'/>
       </div>
-        <Link to={'/home'}>Home</Link>
+        <Link to={'/'}>Home</Link>
         <Link to={'/about'}>About</Link>
         <Link to={'/animes'}>Animes</Link>
         <Link to ={'/posts'}>Posts</Link>
@@ -29,7 +29,7 @@ function NavBar({ user, setUser }) {
             </>
             :
             <>
-              <Link to={'/'}>Signup</Link>
+              <Link to={'/signup'}>Signup</Link>
               <Link to={'/login'}>Login</Link>
             </>
         }

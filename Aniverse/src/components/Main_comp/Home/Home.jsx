@@ -6,6 +6,7 @@ import './Home.css'
 
 function Home() {
   const [animes, setanimes] = useState([])
+  const [posts, setPosts] = useState([])
   const [errors, seterrors] = useState()
   async function getAllAnimes() {
         try{
@@ -16,9 +17,20 @@ function Home() {
             console.log(error)
             seterrors(error.response.data.error)
         }
+  }
+  async function getAllPosts() {
+    try{
+      const response = await axios.get('http://127.0.0.1:8000/api/homeposts/')
+      console.log(response.data)
+      setPosts(response.data)
+    }catch(error){
+      console.log(error)
+      seterrors(error.response.data.error)
     }
+  }
     useEffect(()=>{
         getAllAnimes()
+        getAllPosts()
     },[])
     if (errors){
         return <h3>{errors}</h3>
@@ -47,6 +59,30 @@ function Home() {
                   </Link>
                 )
               })
+            :<p>No anime added yet🥺</p>
+          }
+        </div>
+      </div>
+      <div className='animesection'>
+        <hr color='grey'></hr>
+        <div className='animeh3'>
+          <h2>Last added Posts</h2>
+          <Link to={'/posts'}><h5 color='grey' >See more ᗎ</h5></Link>
+        </div>
+        <div className='Animes'>
+          {
+            posts 
+              ?
+            posts.map((post)=>{
+            return(
+              <Link to= {`/post/${post.id}/`}key={post.id}>
+                <div className='animecard'>
+                  <img src={post.poster} alt='post poster'/>
+                  <p>Posted by: @{post.auther}</p>
+                </div>
+              </Link>
+            )  
+            })
             :<p>No anime added yet🥺</p>
           }
         </div>

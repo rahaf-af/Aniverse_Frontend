@@ -5,8 +5,9 @@ import { useParams ,useNavigate } from 'react-router'
 import { Link } from 'react-router'
 import { authRequest, getUserFromToken, clearTokens } from "../../../lib/auth"
 import {FaComment,FaRegHeart ,FaHeart } from 'react-icons/fa'
+import './PostDetail.css'
 
-function PostDetail() {
+function PostDetail({ user, setUser }) {
     const [post, setpost] = useState([])
     const [comments , setComments] = useState([])
     const [errors, seterrors] = useState()
@@ -71,23 +72,32 @@ function PostDetail() {
   return(
     <>
     <div className='singlepost'>
-        <p>@{post.auther}</p>
-      <div className='postposter'>
-        <img src={post.poster} alt='post poster'/>
-      </div>
-      <div className='postInfo'>
-        <p>Description: {post.text}</p>
-      </div>
-      <div className='interacticons'>
-        <Link to={`/addcomment/${postId}`}>{post.comment_count}<FaComment size={25}/></Link>
-        <span onClick={isfavoriteHandler}>{post.favorit_count}{isfavorite ? <FaHeart color='red' size={25}/>:<FaRegHeart color='red' size={25}/>}</span>
-      </div>
-      <div className='postbuttons'>
-        <Link to={`/editPost/${postId}`}><button>Edit post</button></Link>
-          <button onClick={deleteHandeler}>Delete post</button>
+      <div className='postinfo'>
+          <strong><h2>@{post.auther}</h2></strong>
+        <div className='postposter'>
+          <img src={post.poster} alt='post poster'/>
+        </div>
+        <div className='postInfo'>
+          <p>Description: {post.text}</p>
+        </div>
+        <div className='interacticons'>
+          <Link to={`/addcomment/${postId}`}>{post.comment_count}<FaComment size={25}/></Link>
+          <span onClick={isfavoriteHandler}>{post.favorit_count}{isfavorite ? <FaHeart color='red' size={25}/>:<FaRegHeart color='red' size={25}/>}</span>
+        </div>
       </div>
     </div>
+    {
+      String(post.auther_id) === String(user?.user_id)
+      ?
+        <div className='postbuttons'>
+          <Link to={`/editPost/${postId}`}><button>Edit post</button></Link>
+            <button onClick={deleteHandeler}>Delete post</button>
+        </div>
+      :<p></p>
+    } 
     <div className='postComment'>
+      <h3 color='grey' >Comments</h3>
+      <hr color='grey' width='100%'></hr>
             {
                comments.length >0
                ?
@@ -95,6 +105,7 @@ function PostDetail() {
                     return(
                         <div className='comment'>
                             <p>{comment.text}</p>
+                            <p>@{comment.user}</p>
                         </div>
                     )
                 })

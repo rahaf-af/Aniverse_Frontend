@@ -30,11 +30,11 @@ function App() {
       <BrowserRouter>
         <NavBar user={user} setUser={setUser}/>
         <Routes>
-            <Route path = '/' element={<Signup/>}/>
+            <Route path = '/signup' element={<Signup/>}/>
             <Route path = '/login' element={<Login user={user} setUser={setUser}/>}/>
             <Route path = '/myprofile' element={<MyProfile  user={user} setUser={setUser}/>}/>ContactForm
             <Route path = '/editprofile/:profileId' element={<ProfileForm/>}/>
-            <Route path = '/home' element={<Home/>}/>
+            <Route path = '/' element={<Home/>}/>
             <Route path = '/about' element={<About/>}/>
             <Route path = '/contacus' element={<ContactForm/>}/>
             <Route path = '/animes' element={<Animes/>}/>

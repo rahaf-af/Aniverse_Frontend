@@ -41,7 +41,7 @@ function MyPostFavoritList() {
                 favoritlist.map((favorit)=>{
                     return(
                         <div className='animecard' key={favorit.id}>
-                            <img src={favorit.post_poste} alt='anime poster'/>
+                            <img src={favorit.post_poster} alt='anime poster'/>
                             <p><strong onClick={()=> removePost(favorit.id)}>[❌]</strong>@{favorit.user_username}</p>
                         </div>
                     )
